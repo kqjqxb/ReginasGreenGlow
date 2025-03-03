@@ -1,0 +1,53 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Cormorant-Bold.ttf",
+      "sha1": "7a11ebcf3b612ca459a4102efaebddcc1e483cd6"
+    },
+    {
+      "path": "src/assets/fonts/Cormorant-Italic.ttf",
+      "sha1": "054aa44cc53824d9152e6798ce5ab6842c9b46b8"
+    },
+    {
+      "path": "src/assets/fonts/Cormorant-Medium.ttf",
+      "sha1": "bae658fff2e9fe37ae579a62ea063c4a05eacb79"
+    },
+    {
+      "path": "src/assets/fonts/Cormorant-Regular.ttf",
+      "sha1": "32888bc7c0b220b7260281bcbc2706158c7bd145"
+    },
+    {
+      "path": "src/assets/fonts/Cormorant-SemiBold.ttf",
+      "sha1": "5eaaeda25087ba94bfa3ee2ecdb76c828c44d08e"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Black.ttf",
+      "sha1": "645e04c53c6b5b35bce654a811ebce16af8aa721"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Bold.ttf",
+      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Medium.ttf",
+      "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-SemiBold.ttf",
+      "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+    },
+    {
+      "path": "src/assets/fonts/Poppins-Thin.ttf",
+      "sha1": "09ba4dcd5509c8085bf88c665dcc51cbdfced27b"
+    },
+    {
+      "path": "src/assets/fonts/SFProText-Regular.ttf",
+      "sha1": "b4893462f2289df6978f9462a63db9e64bcc9342"
+    }
+  ]
+}
