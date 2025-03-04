@@ -21,6 +21,7 @@
 		A740FD876A824F20BE6E20E0 /* Cormorant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB8B084AEC8F4E148636DFC4 /* Cormorant-Bold.ttf */; };
 		B512566F1548445392628E8F /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83BBA545490F4B9A8A1A8791 /* Poppins-Thin.ttf */; };
 		B694C766A5684AADA9A5A080 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD05155B150645F4980CA742 /* Poppins-Black.ttf */; };
+		CE12140A2D770739009DFB92 /* guitar-chill.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE1214092D770739009DFB92 /* guitar-chill.wav */; };
 		D2571CE28D9E44DF9D5358FE /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1471BE87497D47E789A4F926 /* Poppins-Bold.ttf */; };
 		D6129D6ABAEE48BF9291EADC /* Cormorant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67538FE98EC549FDA247CA7E /* Cormorant-SemiBold.ttf */; };
 		E973A45521B94FA3B4BEDED4 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E4212CD962749B890D41232 /* Poppins-Regular.ttf */; };
@@ -41,11 +42,12 @@
 		6CFBE9E5D86243F1AA4A9BB3 /* Cormorant-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Medium.ttf"; path = "../src/assets/fonts/Cormorant-Medium.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ReginasGreenGlow/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReginasGreenGlow/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83BBA545490F4B9A8A1A8791 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		83BBA545490F4B9A8A1A8791 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		8E4212CD962749B890D41232 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		A603B1B3DA4B473AAA3FCA15 /* Cormorant-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Italic.ttf"; path = "../src/assets/fonts/Cormorant-Italic.ttf"; sourceTree = "<group>"; };
 		CB8B084AEC8F4E148636DFC4 /* Cormorant-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Bold.ttf"; path = "../src/assets/fonts/Cormorant-Bold.ttf"; sourceTree = "<group>"; };
 		CD05155B150645F4980CA742 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		CE1214092D770739009DFB92 /* guitar-chill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "guitar-chill.wav"; sourceTree = "<group>"; };
 		CE2F833168134704BA1E160F /* Cormorant-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cormorant-Regular.ttf"; path = "../src/assets/fonts/Cormorant-Regular.ttf"; sourceTree = "<group>"; };
 		D75023343E7B47AC96772378 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProText-Regular.ttf"; path = "../src/assets/fonts/SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -87,6 +89,7 @@
 		5F16B211BE4D4B5A8F63397B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE1214092D770739009DFB92 /* guitar-chill.wav */,
 				CB8B084AEC8F4E148636DFC4 /* Cormorant-Bold.ttf */,
 				A603B1B3DA4B473AAA3FCA15 /* Cormorant-Italic.ttf */,
 				6CFBE9E5D86243F1AA4A9BB3 /* Cormorant-Medium.ttf */,
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				CE12140A2D770739009DFB92 /* guitar-chill.wav in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3CBB6A39B6393B8ABF59AA04 /* PrivacyInfo.xcprivacy in Resources */,
 				A740FD876A824F20BE6E20E0 /* Cormorant-Bold.ttf in Resources */,

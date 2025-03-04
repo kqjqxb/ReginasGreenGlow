@@ -5,14 +5,11 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  ImageBackground,
   SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Sound from 'react-native-sound';
 import ArticlesScreen from './ArticlesScreen';
-import LevelsScreen from './LevelsScreen';
-import CatchScreen from './CatchScreen';
 
 const fontPoppinsRegular = 'Poppins-Regular';
 const fontCormorantRegular = 'Cormorant-Regular';
@@ -20,6 +17,8 @@ const fontCormorantRegular = 'Cormorant-Regular';
 import articles from '../components/articles';
 import SettingsScreen from './SettingsScreen';
 import JournalScreen from './JournalScreen';
+import BubblesScreen from './BubblesScreen';
+import { useAudio } from '../context/AudioContext';
 
 
 const bottomBtns = [
@@ -67,6 +66,53 @@ const HomeScreen = () => {
   const [isArticleDetailsVisible, setIsArticleDetailsVisible] = useState(false);
   const [isMusicEnabled, setIsMusicEnabled] = useState(true);
   const [isNotificationEnabled, setNotificationEnabled] = useState(true);
+  const { volume } = useAudio();
+  const [indexOfTheCurrentReginasTrack, setIndexOfTheCurrentReginasTrack] = useState(0);
+  const [sound, setSound] = useState(null);
+
+  const tracks = ['guitar-chill.wav', 'guitar-chill.wav'];
+
+  useEffect(() => {
+    playReginasTrack(indexOfTheCurrentReginasTrack);
+
+    return () => {
+      if (sound) {
+        sound.stop(() => {
+          sound.release();
+        });
+      }
+    };
+  }, [indexOfTheCurrentReginasTrack]);
+
+  useEffect(() => {
+    if (sound) {
+      sound.setVolume(isMusicEnabled ? 1 : 0);
+    }
+  }, [isMusicEnabled, sound]);
+
+  const playReginasTrack = (index) => {
+    if (sound) {
+      sound.stop(() => {
+        sound.release();
+      });
+    }
+
+    const newSound = new Sound(tracks[index], Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('Помилка завантаження треку:', error);
+        return;
+      }
+      newSound.setVolume(volume);
+      newSound.play((success) => {
+        if (success) {
+          setIndexOfTheCurrentReginasTrack((prevIndex) => (prevIndex + 1) % tracks.length);
+        } else {
+          console.log('Error play track');
+        }
+      });
+      setSound(newSound);
+    });
+  };
 
   useEffect(() => {
     const randArticle = articles[Math.floor(Math.random() * articles.length)];
@@ -115,20 +161,20 @@ const HomeScreen = () => {
   };
 
 
-  const loadSettings = async () => {
+  const loadReginasSettings = async () => {
     try {
-      const vibrationValue = await AsyncStorage.getItem('isMusicEnabled');
-      const notificationValue = await AsyncStorage.getItem('isNotificationEnabled');
+      const musicReginasValue = await AsyncStorage.getItem('isMusicEnabled');
+      const notificationReginasValue = await AsyncStorage.getItem('isNotificationEnabled');
 
-      if (vibrationValue !== null) setIsMusicEnabled(JSON.parse(vibrationValue));
-      if (notificationValue !== null) setNotificationEnabled(JSON.parse(notificationValue));
+      if (musicReginasValue !== null) setIsMusicEnabled(JSON.parse(musicReginasValue));
+      if (notificationReginasValue !== null) setNotificationEnabled(JSON.parse(notificationReginasValue));
     } catch (error) {
       console.error("Error loading settings:", error);
     }
   };
 
   useEffect(() => {
-    loadSettings();
+    loadReginasSettings();
   }, [isNotificationEnabled, selectedScreen]);
 
 
@@ -177,7 +223,7 @@ const HomeScreen = () => {
 
             <TouchableOpacity
               onPress={() => {
-                setSelectedScreen('Game');
+                setSelectedScreen('Checklist');
               }}
               style={{
                 backgroundColor: '#005B41',
@@ -217,7 +263,7 @@ const HomeScreen = () => {
 
             <TouchableOpacity
               onPress={() => {
-                setSelectedScreen('Game');
+                setSelectedScreen('Articles');
               }}
               style={{
                 backgroundColor: '#D2C780',
@@ -274,16 +320,16 @@ const HomeScreen = () => {
                 </Text>
               </View>
 
-              <TouchableOpacity 
-              onPress={() => {
-                saveReginasArticle(randReginaArticle);
-              }}
-              style={{
-                borderRadius: dimensions.width * 0.5,
-                backgroundColor: isReginaArticleSaved(randReginaArticle) ? '#005B41' : '#D2C780',
-                padding: dimensions.height * 0.025,
-              }}>
-                <Image 
+              <TouchableOpacity
+                onPress={() => {
+                  saveReginasArticle(randReginaArticle);
+                }}
+                style={{
+                  borderRadius: dimensions.width * 0.5,
+                  backgroundColor: isReginaArticleSaved(randReginaArticle) ? '#005B41' : '#D2C780',
+                  padding: dimensions.height * 0.025,
+                }}>
+                <Image
                   source={require('../assets/icons/whiteStarIcon.png')}
                   style={{
                     width: dimensions.height * 0.025,
@@ -301,61 +347,61 @@ const HomeScreen = () => {
           isArticleDetailsVisible={isArticleDetailsVisible} setIsArticleDetailsVisible={setIsArticleDetailsVisible} selectedArticle={selectedArticle} setSelectedArticle={setSelectedArticle}
         />
       ) : selectedScreen === 'Settings' ? (
-        <SettingsScreen setSelectedScreen={setSelectedScreen} selectedScreen={selectedScreen} 
+        <SettingsScreen setSelectedScreen={setSelectedScreen} selectedScreen={selectedScreen}
           setNotificationEnabled={setNotificationEnabled} isNotificationEnabled={isNotificationEnabled}
           isMusicEnabled={isMusicEnabled} setIsMusicEnabled={setIsMusicEnabled}
         />
       ) : selectedScreen === 'Checklist' ? (
-        <JournalScreen setSelectedScreen={setSelectedScreen}  />
-      ) : selectedScreen === 'Game' ? (
-        <CatchScreen setSelectedScreen={setSelectedScreen} selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} />
+        <JournalScreen setSelectedScreen={setSelectedScreen} />
+      ) : selectedScreen === 'BubblesGame' ? (
+        <BubblesScreen setSelectedScreen={setSelectedScreen} />
       ) : null}
 
 
-
-      <View
-        style={{
-          position: 'absolute',
-          bottom: dimensions.height * 0.035,
-          backgroundColor: '#D2C780',
-          width: dimensions.width * 0.826,
-          paddingHorizontal: dimensions.width * 0.01,
-          borderRadius: dimensions.width * 0.5,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          alignSelf: 'center',
-          paddingVertical: dimensions.height * 0.003,
-          zIndex: 5000,
-          borderColor: 'white',
-          borderWidth: dimensions.width * 0.0025,
-        }}
-      >
-        {bottomBtns.map((button, index) => (
-          <TouchableOpacity
-            key={button.id}
-            onPress={() => setSelectedScreen(button.screen)}
-            style={{
-              borderRadius: dimensions.width * 0.5,
-              padding: dimensions.height * 0.023,
-              alignItems: 'center',
-              backgroundColor: selectedScreen === button.screen ? '#005B41' : '#F3F4DD',
-            }}
-          >
-            <Image
-              source={selectedScreen === button.screen ? button.whiteIcon : button.yellowIcon}
+      {selectedScreen !== 'BubblesGame' && (
+        <View
+          style={{
+            position: 'absolute',
+            bottom: dimensions.height * 0.035,
+            backgroundColor: '#D2C780',
+            width: dimensions.width * 0.826,
+            paddingHorizontal: dimensions.width * 0.01,
+            borderRadius: dimensions.width * 0.5,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            alignSelf: 'center',
+            paddingVertical: dimensions.height * 0.003,
+            zIndex: 5000,
+            borderColor: 'white',
+            borderWidth: dimensions.width * 0.0025,
+          }}
+        >
+          {bottomBtns.map((button, index) => (
+            <TouchableOpacity
+              key={button.id}
+              onPress={() => setSelectedScreen(button.screen)}
               style={{
-                width: dimensions.height * 0.025,
-                height: dimensions.height * 0.025,
-
-                textAlign: 'center'
+                borderRadius: dimensions.width * 0.5,
+                padding: dimensions.height * 0.023,
+                alignItems: 'center',
+                backgroundColor: selectedScreen === button.screen ? '#005B41' : '#F3F4DD',
               }}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        ))}
+            >
+              <Image
+                source={selectedScreen === button.screen ? button.whiteIcon : button.yellowIcon}
+                style={{
+                  width: dimensions.height * 0.025,
+                  height: dimensions.height * 0.025,
 
-      </View>
+                  textAlign: 'center'
+                }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
     </View>
   );
 };

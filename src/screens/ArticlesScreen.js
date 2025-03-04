@@ -82,7 +82,6 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
             Explore insightful reads on skincare, wellness, and eco-friendly beauty
           </Text>
 
-
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{
               paddingBottom: dimensions.height * 0.16,
@@ -146,9 +145,7 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                         height: dimensions.height * 0.025,
                       }}
                     />
-
                   </TouchableOpacity>
-
                 </TouchableOpacity>
               ))}
             </View>
@@ -160,7 +157,6 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
             marginBottom: dimensions.height * 0.16,
  
           }}>
-
             <View style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -192,8 +188,6 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                   />
                 </TouchableOpacity>
 
-
-
                 <TouchableOpacity
                   onPress={() => {
                     shareArticle();
@@ -210,11 +204,8 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                       height: dimensions.height * 0.028,
                     }}
                   />
-
                 </TouchableOpacity>
               </View>
-
-
 
               <TouchableOpacity
                 onPress={() => {
@@ -225,8 +216,7 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                   borderRadius: dimensions.width * 0.1,
                   backgroundColor: '#005B41',
                   padding: dimensions.height * 0.025,
-                }}>
-                  
+                }}>  
                 <Image
                   source={require('../assets/icons/xcircleIcon.png')}
                   style={{
@@ -234,9 +224,9 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                     height: dimensions.height * 0.025,
                   }}
                 />
-
               </TouchableOpacity>
             </View>
+
             <Text
               style={{
                 fontFamily: fontCormorantRegular,
@@ -251,7 +241,6 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
             >
               {selectedArticle.title}
             </Text>
-
 
             <Text
               style={{

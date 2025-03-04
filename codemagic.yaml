@@ -7,12 +7,12 @@ workflows:
       groups:
         - creds
       vars:
-        XCODE_WORKSPACE: "HungryWolf.xcworkspace" # <----
-        XCODE_SCHEME: "HungryWolf" # <----
+        XCODE_WORKSPACE: "ReginasGreenGlow.xcworkspace" # <----
+        XCODE_SCHEME: "ReginasGreenGlow" # <----
         BUNDLE_ID: "com.reginas.green.glow.app" # <----
-        APP_STORE_APP_ID: 6742485199 # <----
-        APP_STORE_CONNECT_KEY_ID: "NZ4297WPJV" # <----
-        APP_STORE_CONNECT_ISSUER_ID: "d1042dc8-166f-4cc9-a47d-7ce0571c6438" # <----
+        APP_STORE_APP_ID: 6742783280 # <----
+        APP_STORE_CONNECT_KEY_ID: "UGR4QHKRFQ" # <----
+        APP_STORE_CONNECT_ISSUER_ID: "c94eae93-0e13-4cea-b3f9-c37022f13fcc" # <----
         node: latest
         xcode: latest
         cocoapods: default
@@ -52,7 +52,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - 1melekcente@gmail.com       # <----
+          - lrgsergio@yahoo.com       # <----
         notify:
           success: true
           failure: false

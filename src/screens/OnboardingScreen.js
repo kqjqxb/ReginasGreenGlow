@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, FlatList, Animated, Text, TouchableOpacity, ImageBackground, Dimensions, Image, Platform, SafeAreaView } from 'react-native';
-import hungryWolfOnboardingData from '../components/hungryWolfOnboardingData';
+import onboardingReginasData from '../components/onboardingReginasData';
 import { useNavigation } from '@react-navigation/native';
 
 const fontPoppinsRegular = 'Poppins-Regular';
@@ -9,7 +9,7 @@ const fontCormorantRegular = 'Cormorant-Regular';
 const OnboardingScreen = () => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const navigation = useNavigation();
-  const [currentWolfSlideIndex, setCurrentWolfSlideIndex] = useState(0);
+  const [currentReginasSlideIndex, setCurrentReginasSlideIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
 
@@ -25,25 +25,21 @@ const OnboardingScreen = () => {
     };
   }, []);
 
-
-
-
   const viewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems && viewableItems.length > 0) {
-      setCurrentWolfSlideIndex(viewableItems[0].index);
+      setCurrentReginasSlideIndex(viewableItems[0].index);
     }
   }).current;
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
 
-  const scrollToTheNextLeonSlide = () => {
-    if (currentWolfSlideIndex < hungryWolfOnboardingData.length - 1) {
-      slidesRef.current.scrollToIndex({ index: currentWolfSlideIndex + 1 });
+  const scrollToTheNextReginasSlide = () => {
+    if (currentReginasSlideIndex < onboardingReginasData.length - 1) {
+      slidesRef.current.scrollToIndex({ index: currentReginasSlideIndex + 1 });
     } else {
       navigation.navigate('Home');
     }
   };
-
 
   const renderReginasItem = ({ item }) => (
     <View style={{
@@ -51,10 +47,8 @@ const OnboardingScreen = () => {
       flex: 1,
       borderColor: 'white',
       alignItems: 'center',
-    }} >
+    }}>
       <View style={{
-
-
         alignItems: 'center',
         justifyContent: 'center',
         width: dimensions.width,
@@ -64,36 +58,31 @@ const OnboardingScreen = () => {
           resizeMode="contain"
           source={item.image}
           style={{
-            aspectRatio: 1,
-            height: undefined,
             width: dimensions.width,
-
+            height: undefined,
+            aspectRatio: 1,
           }}
         />
         <Text
           style={{
             fontFamily: fontCormorantRegular,
-            fontSize: dimensions.width * 0.059,
+            fontWeight: 500,
             paddingHorizontal: dimensions.width * 0.03,
             color: 'white',
             textAlign: 'center',
             marginTop: dimensions.height * 0.05,
-            fontWeight: 500
+            fontSize: dimensions.width * 0.059,
           }}>
           {item.description}
         </Text>
-
       </View>
     </View>
   );
 
   return (
-
     <SafeAreaView
       style={{ justifyContent: 'space-between', flex: 1, alignItems: 'center', backgroundColor: '#005B41' }}
     >
-
-
       <View style={{
         display: 'flex',
         width: dimensions.width,
@@ -101,7 +90,7 @@ const OnboardingScreen = () => {
         alignSelf: 'center'
       }}>
         <FlatList
-          data={hungryWolfOnboardingData}
+          data={onboardingReginasData}
           renderItem={renderReginasItem}
           bounces={false}
           horizontal
@@ -120,9 +109,9 @@ const OnboardingScreen = () => {
 
       <TouchableOpacity
         onPress={() => {
-          if (currentWolfSlideIndex === hungryWolfOnboardingData.length - 1) {
+          if (currentReginasSlideIndex === onboardingReginasData.length - 1) {
             navigation.navigate('Home');
-          } else scrollToTheNextLeonSlide();
+          } else scrollToTheNextReginasSlide();
         }}
         style={{
           backgroundColor: '#D2C780',
@@ -142,10 +131,9 @@ const OnboardingScreen = () => {
             fontWeight: 400,
             textTransform: 'uppercase',
           }}>
-          {currentWolfSlideIndex === 0 ? 'Next' : 'Start'}
+          {currentReginasSlideIndex === 0 ? 'Next' : 'Start'}
         </Text>
       </TouchableOpacity>
-
     </SafeAreaView>
   );
 };

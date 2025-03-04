@@ -1,8 +1,8 @@
 import React from 'react';
-import HungryWolfStack from './StackNavigator';
+import ReginasGreenGlowStack from './StackNavigator';
 
 function App() {
-  return <HungryWolfStack />;
+  return <ReginasGreenGlowStack />;
 }
 
 export default App;
