@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const fontPoppinsRegular = 'Poppins-Regular';
 const fontCormorantRegular = 'Cormorant-Regular';
+const fontPoppinsItalic = 'Poppins-Italic';
 
 const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedReginasArticles, isArticleDetailsVisible, setIsArticleDetailsVisible, selectedArticle, setSelectedArticle }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -125,7 +126,17 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                       }}>
                       {article.article.length > 100
                         ? article.article.substring(0, 100) + '...'
-                        : article.article}
+                        : article.article} <Text
+                          style={{
+                            fontFamily: fontPoppinsItalic,
+                            color: 'black',
+                            fontSize: dimensions.width * 0.031,
+                            textAlign: 'left',
+                            fontWeight: 400,
+                            fontStyle: 'italic',
+                          }}>
+                        {" (Read more)"}
+                      </Text>
                     </Text>
                   </View>
 
@@ -155,7 +166,7 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{
             marginBottom: dimensions.height * 0.16,
- 
+
           }}>
             <View style={{
               flexDirection: 'row',
@@ -216,7 +227,7 @@ const ArticlesScreen = ({ setSelectedScreen, savedReginasArticles, setSavedRegin
                   borderRadius: dimensions.width * 0.1,
                   backgroundColor: '#005B41',
                   padding: dimensions.height * 0.025,
-                }}>  
+                }}>
                 <Image
                   source={require('../assets/icons/xcircleIcon.png')}
                   style={{

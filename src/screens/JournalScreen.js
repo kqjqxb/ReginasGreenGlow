@@ -592,7 +592,10 @@ const JournalScreen = ({ setSelectedScreen, }) => {
                     {selectedReflection &&
                       selectedDay.toISOString().slice(0, 10) === new Date().toISOString().slice(0, 10) && (
                         <TouchableOpacity
-                          onPress={() => setIsEditindTodayRelfection(true)}
+                          onPress={() => {
+                            // setIsEditindTodayRelfection(true);
+                            editReflaction();
+                          }}
                           style={{
                             backgroundColor: '#005B41',
                             borderRadius: dimensions.width * 0.5,

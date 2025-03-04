@@ -223,7 +223,8 @@ const HomeScreen = () => {
 
             <TouchableOpacity
               onPress={() => {
-                setSelectedScreen('Checklist');
+                // setSelectedScreen('Checklist');
+                goToJourney();
               }}
               style={{
                 backgroundColor: '#005B41',
@@ -263,7 +264,8 @@ const HomeScreen = () => {
 
             <TouchableOpacity
               onPress={() => {
-                setSelectedScreen('Articles');
+                // setSelectedScreen('Articles');
+                goToArticles();
               }}
               style={{
                 backgroundColor: '#D2C780',
