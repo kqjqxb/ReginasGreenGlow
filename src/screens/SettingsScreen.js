@@ -230,7 +230,7 @@ const SettingsScreen = ({ setSelectedScreen, isNotificationEnabled, setNotificat
 
         <TouchableOpacity 
           onPress={() => {
-            Linking.openURL('https://www.termsfeed.com/live/db41bfa6-4653-4bfa-bf56-aaa37bfb3f00');
+            Linking.openURL('https://www.termsfeed.com/live/7744ec8a-0e5c-45e9-a499-f744c1503d3f');
           }}
         style={{
           flexDirection: 'row',

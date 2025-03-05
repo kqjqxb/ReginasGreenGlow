@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Sound from 'react-native-sound';
@@ -192,157 +193,164 @@ const HomeScreen = () => {
           width: dimensions.width,
         }}>
 
-          <View style={{
-            marginBottom: dimensions.height * 0.05,
-          }}>
-            <Image
-              source={require('../assets/images/reginasHomeImage.png')}
-              style={{
-                width: dimensions.width,
-                height: dimensions.height * 0.23,
-                alignSelf: 'center',
-                textAlign: 'center'
-              }}
-              resizeMode="stretch"
-            />
-
-
-            <Text
-              style={{
-                fontFamily: fontCormorantRegular,
-                color: 'black',
-                fontSize: dimensions.width * 0.053,
-                textAlign: 'left',
-                alignSelf: 'center',
-                paddingHorizontal: dimensions.width * 0.05,
-                marginTop: dimensions.height * 0.025,
-                fontWeight: 500,
-              }}>
-              Your skin, hair, and well-being change every day—so why not keep a journal to notice what works best for you? 🌿✨
-            </Text>
-
-            <TouchableOpacity
-              onPress={() => {
-                // setSelectedScreen('Checklist');
-                goToJourney();
-              }}
-              style={{
-                backgroundColor: '#005B41',
-                borderRadius: dimensions.width * 0.5,
-                paddingVertical: dimensions.height * 0.019,
-                alignSelf: 'center',
-                width: dimensions.width * 0.9,
-                marginVertical: dimensions.height * 0.019
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: fontPoppinsRegular,
-                  color: 'white',
-                  fontSize: dimensions.width * 0.044,
-                  textAlign: 'center',
-                  fontWeight: 400,
-                }}>
-                Start your journey today
-              </Text>
-            </TouchableOpacity>
-
-
-            <Text
-              style={{
-                fontFamily: fontCormorantRegular,
-                color: 'black',
-                fontSize: dimensions.width * 0.053,
-                textAlign: 'left',
-                alignSelf: 'center',
-                paddingHorizontal: dimensions.width * 0.05,
-                fontWeight: 500,
-              }}>
-              Start exploring now and find something inspiring to save!
-            </Text>
-
-
-            <TouchableOpacity
-              onPress={() => {
-                // setSelectedScreen('Articles');
-                goToArticles();
-              }}
-              style={{
-                backgroundColor: '#D2C780',
-                borderRadius: dimensions.width * 0.5,
-                paddingVertical: dimensions.height * 0.019,
-                alignSelf: 'center',
-                width: dimensions.width * 0.9,
-                marginVertical: dimensions.height * 0.019
-              }}
-            >
-              <Text
-                style={{
-                  fontFamily: fontPoppinsRegular,
-                  color: 'white',
-                  fontSize: dimensions.width * 0.044,
-                  textAlign: 'center',
-                  fontWeight: 400,
-                }}>
-                Browse Articles
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={{
-              width: dimensions.width * 0.9,
+          <ScrollView>
+            <View style={{
+              paddingBottom: dimensions.height * 0.05,
               alignSelf: 'center',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
             }}>
-              <View style={{
-                maxWidth: dimensions.width * 0.7,
-              }}>
-                <Text
-                  style={{
-                    fontFamily: fontPoppinsRegular,
-                    color: 'black',
-                    fontSize: dimensions.width * 0.043,
-                    textAlign: 'left',
-                    fontWeight: 500,
-                  }}>
-                  {randReginaArticle?.title}
-                </Text>
-                <Text
-                  style={{
-                    fontFamily: fontPoppinsRegular,
-                    color: 'black',
-                    fontSize: dimensions.width * 0.034,
-                    textAlign: 'left',
-                    fontWeight: 400,
-                  }}>
-                  {randReginaArticle?.article.length > 100
-                    ? randReginaArticle?.article.substring(0, 100) + '...'
-                    : randReginaArticle?.article}
-                </Text>
-              </View>
 
-              <TouchableOpacity
-                onPress={() => {
-                  saveReginasArticle(randReginaArticle);
-                }}
-                style={{
-                  borderRadius: dimensions.width * 0.5,
-                  backgroundColor: isReginaArticleSaved(randReginaArticle) ? '#005B41' : '#D2C780',
-                  padding: dimensions.height * 0.025,
-                }}>
+              <View style={{
+                marginBottom: dimensions.height * 0.05,
+              }}>
                 <Image
-                  source={require('../assets/icons/whiteStarIcon.png')}
+                  source={require('../assets/images/reginasHomeImage.png')}
                   style={{
-                    width: dimensions.height * 0.025,
-                    height: dimensions.height * 0.025,
+                    width: dimensions.width,
+                    height: dimensions.height * 0.23,
+                    alignSelf: 'center',
+                    textAlign: 'center'
                   }}
+                  resizeMode="stretch"
                 />
 
-              </TouchableOpacity>
 
-            </TouchableOpacity>
-          </View>
+                <Text
+                  style={{
+                    fontFamily: fontCormorantRegular,
+                    color: 'black',
+                    fontSize: dimensions.width * 0.053,
+                    textAlign: 'left',
+                    alignSelf: 'center',
+                    paddingHorizontal: dimensions.width * 0.05,
+                    marginTop: dimensions.height * 0.025,
+                    fontWeight: 500,
+                  }}>
+                  Your skin, hair, and well-being change every day—so why not keep a journal to notice what works best for you? 🌿✨
+                </Text>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    setSelectedScreen('Checklist');
+                  }}
+                  style={{
+                    backgroundColor: '#005B41',
+                    borderRadius: dimensions.width * 0.5,
+                    paddingVertical: dimensions.height * 0.019,
+                    alignSelf: 'center',
+                    width: dimensions.width * 0.9,
+                    marginVertical: dimensions.height * 0.019
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: fontPoppinsRegular,
+                      color: 'white',
+                      fontSize: dimensions.width * 0.044,
+                      textAlign: 'center',
+                      fontWeight: 400,
+                    }}>
+                    Start your journey today
+                  </Text>
+                </TouchableOpacity>
+
+
+                <Text
+                  style={{
+                    fontFamily: fontCormorantRegular,
+                    color: 'black',
+                    fontSize: dimensions.width * 0.053,
+                    textAlign: 'left',
+                    alignSelf: 'center',
+                    paddingHorizontal: dimensions.width * 0.05,
+                    fontWeight: 500,
+                  }}>
+                  Start exploring now and find something inspiring to save!
+                </Text>
+
+
+                <TouchableOpacity
+                  onPress={() => {
+                    setSelectedScreen('Articles');
+                  }}
+                  style={{
+                    backgroundColor: '#D2C780',
+                    borderRadius: dimensions.width * 0.5,
+                    paddingVertical: dimensions.height * 0.019,
+                    alignSelf: 'center',
+                    width: dimensions.width * 0.9,
+                    marginVertical: dimensions.height * 0.019
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: fontPoppinsRegular,
+                      color: 'white',
+                      fontSize: dimensions.width * 0.044,
+                      textAlign: 'center',
+                      fontWeight: 400,
+                    }}>
+                    Browse Articles
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{
+                  width: dimensions.width * 0.9,
+                  alignSelf: 'center',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                }}>
+                  <View style={{
+                    maxWidth: dimensions.width * 0.7,
+                  }}>
+                    <Text
+                      style={{
+                        fontFamily: fontPoppinsRegular,
+                        color: 'black',
+                        fontSize: dimensions.width * 0.043,
+                        textAlign: 'left',
+                        fontWeight: 500,
+                      }}>
+                      {randReginaArticle?.title}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: fontPoppinsRegular,
+                        color: 'black',
+                        fontSize: dimensions.width * 0.034,
+                        textAlign: 'left',
+                        fontWeight: 400,
+                      }}>
+                      {randReginaArticle?.article.length > 100
+                        ? randReginaArticle?.article.substring(0, 100) + '...'
+                        : randReginaArticle?.article}
+                    </Text>
+                  </View>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      saveReginasArticle(randReginaArticle);
+                    }}
+                    style={{
+                      borderRadius: dimensions.width * 0.5,
+                      backgroundColor: isReginaArticleSaved(randReginaArticle) ? '#005B41' : '#D2C780',
+                      padding: dimensions.height * 0.025,
+                    }}>
+                    <Image
+                      source={require('../assets/icons/whiteStarIcon.png')}
+                      style={{
+                        width: dimensions.height * 0.025,
+                        height: dimensions.height * 0.025,
+                      }}
+                    />
+
+                  </TouchableOpacity>
+
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+
         </SafeAreaView>
       ) : selectedScreen === 'Articles' ? (
         <ArticlesScreen setSelectedScreen={setSelectedScreen} savedReginasArticles={savedReginasArticles} setSavedReginasArticles={setSavedReginasArticles}
